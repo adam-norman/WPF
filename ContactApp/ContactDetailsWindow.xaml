@@ -1,4 +1,4 @@
-﻿<Window x:Class="ContactApp.NewContactWindow"
+﻿<Window x:Class="ContactApp.ContactDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -16,8 +16,10 @@
             <Label>Phone</Label>
             <TextBox x:Name="phoneTextBox"
                      Margin="0,0,0,5"/>
-            <Button x:Name="saveButton" Content="Save"
-                    Click="SaveButton_Click"/>
+            <Button x:Name="updateButton" Content="Update"  Margin="0,0,0,5"
+                    Click="UpdateButton_Click"/>
+            <Button x:Name="deleteButton" Content="Delete" Background="Red"
+                    Click="DeleteButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ContactApp.Models;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,20 @@ namespace ContactApp
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+
+            Contact contact = new Contact()
+            {
+                Name = nameTextBox.Text,
+                Email = emailTextBox.Text,
+                Phone = phoneTextBox.Text
+            };
+
+            using (SQLiteConnection connection = new SQLiteConnection(App.dbPath))
+            {
+                connection.CreateTable<Contact>();
+                connection.Insert(contact);
+            }
+                Close(); // closing window
         }
     }
 }

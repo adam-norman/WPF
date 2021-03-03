@@ -4,9 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactApp"
+        xmlns:uc="clr-namespace:ContactApp.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <Button Content="Add Contacts" Click="Button_Click"/>
+        <TextBox Margin="0,5,0,5" TextChanged="TextBox_TextChanged" />
+        <ListView x:Name="contactsListView" Margin="0,5,0,0" SelectionChanged="contactsListView_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <uc:ContactControl Contact="{Binding}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackPanel>
 </Window>
